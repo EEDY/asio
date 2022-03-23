@@ -34,6 +34,7 @@ check_PROGRAMS = \
 	unit/basic_streambuf \
 	unit/basic_waitable_timer \
 	unit/basic_writable_pipe \
+	unit/bind_allocator \
 	unit/bind_cancellation_slot \
 	unit/bind_executor \
 	unit/buffered_read_stream \
@@ -133,6 +134,7 @@ check_PROGRAMS = \
 	unit/read_at \
 	unit/read_until \
 	unit/readable_pipe \
+	unit/recycling_allocator \
 	unit/redirect_error \
 	unit/registered_buffer \
 	unit/serial_port \
@@ -186,9 +188,16 @@ noinst_PROGRAMS = \
 	performance/server
 endif
 
+if HAVE_CXX11
+check_PROGRAMS += \
+	unit/experimental/as_tuple
+endif
+
 if HAVE_CXX14
 check_PROGRAMS += \
-	unit/experimental/deferred
+	unit/experimental/append \
+	unit/experimental/deferred \
+	unit/experimental/prepend
 endif
 
 if HAVE_CXX17
@@ -252,6 +261,7 @@ TESTS = \
 	unit/basic_streambuf \
 	unit/basic_waitable_timer \
 	unit/basic_writable_pipe \
+	unit/bind_allocator \
 	unit/bind_cancellation_slot \
 	unit/bind_executor \
 	unit/buffered_read_stream \
@@ -345,6 +355,7 @@ TESTS = \
 	unit/read_at \
 	unit/read_until \
 	unit/readable_pipe \
+	unit/recycling_allocator \
 	unit/redirect_error \
 	unit/registered_buffer \
 	unit/serial_port \
@@ -388,9 +399,16 @@ TESTS = \
 	unit/write \
 	unit/write_at
 
+if HAVE_CXX11
+TESTS += \
+	unit/experimental/as_tuple
+endif
+
 if HAVE_CXX14
 TESTS += \
-	unit/experimental/deferred
+	unit/experimental/append \
+	unit/experimental/deferred \
+	unit/experimental/prepend
 endif
 
 if HAVE_CXX17
@@ -468,6 +486,7 @@ unit_basic_stream_socket_SOURCES = unit/basic_stream_socket.cpp
 unit_basic_streambuf_SOURCES = unit/basic_streambuf.cpp
 unit_basic_waitable_timer_SOURCES = unit/basic_waitable_timer.cpp
 unit_basic_writable_pipe_SOURCES = unit/basic_writable_pipe.cpp
+unit_bind_allocator_SOURCES = unit/bind_allocator.cpp
 unit_bind_cancellation_slot_SOURCES = unit/bind_cancellation_slot.cpp
 unit_bind_executor_SOURCES = unit/bind_executor.cpp
 unit_buffer_SOURCES = unit/buffer.cpp
@@ -567,6 +586,7 @@ unit_read_SOURCES = unit/read.cpp
 unit_read_at_SOURCES = unit/read_at.cpp
 unit_read_until_SOURCES = unit/read_until.cpp
 unit_readable_pipe_SOURCES = unit/readable_pipe.cpp
+unit_recycling_allocator_SOURCES = unit/recycling_allocator.cpp
 unit_redirect_error_SOURCES = unit/redirect_error.cpp
 unit_registered_buffer_SOURCES = unit/registered_buffer.cpp
 unit_serial_port_SOURCES = unit/serial_port.cpp
@@ -610,8 +630,14 @@ unit_writable_pipe_SOURCES = unit/writable_pipe.cpp
 unit_write_SOURCES = unit/write.cpp
 unit_write_at_SOURCES = unit/write_at.cpp
 
+if HAVE_CXX11
+unit_experimental_as_tuple_SOURCES = unit/experimental/as_tuple.cpp
+endif
+
 if HAVE_CXX14
+unit_experimental_append_SOURCES = unit/experimental/append.cpp
 unit_experimental_deferred_SOURCES = unit/experimental/deferred.cpp
+unit_experimental_prepend_SOURCES = unit/experimental/prepend.cpp
 endif
 
 if HAVE_CXX17

@@ -137,6 +137,7 @@ UNIT_TEST_EXES = \
 	tests\unit\basic_streambuf.exe \
 	tests\unit\basic_waitable_timer.exe \
 	tests\unit\basic_writable_pipe.exe \
+	tests\unit\bind_allocator.exe \
 	tests\unit\bind_cancellation_slot.exe \
 	tests\unit\bind_executor.exe \
 	tests\unit\buffered_read_stream.exe \
@@ -231,6 +232,7 @@ UNIT_TEST_EXES = \
 	tests\unit\read_at.exe \
 	tests\unit\read_until.exe \
 	tests\unit\readable_pipe.exe \
+	tests\unit\recycling_allocator.exe \
 	tests\unit\redirect_error.exe \
 	tests\unit\registered_buffer.exe \
 	tests\unit\serial_port.exe \

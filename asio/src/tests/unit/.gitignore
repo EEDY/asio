@@ -29,6 +29,7 @@ basic_stream_socket
 basic_streambuf
 basic_waitable_timer
 basic_writable_pipe
+bind_allocator
 bind_cancellation_slot
 bind_executor
 buffer
@@ -70,6 +71,7 @@ read
 read_at
 read_until
 readable_pipe
+recycling_allocator
 redirect_error
 registered_buffer
 serial_port
